@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Water polarization demo</title>
+      <script type="text/javascript" src="h2o.js"></script>
+    </head>
+    <body>
+      <h1>Water polarization demo</h1>
+      <table>
+	<tr>
+	  <td rowspan=3>
+	    <canvas id="canvas" style="padding:5px;"></canvas>
+	  </td>
+	  <td>
+	    temperature:
+	    <input id="temperature" type="number" value="10" min="1" max="100">
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    electric field:
+	    <input id="electricfield" type="number" value="10" min="0" max="100">
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    alignment:
+	    <span id="alignment"></span>
+	  </td>
+	</tr>
+	  
+
+      </table>
+
+      <!-- <br> -->
+      <!-- <b>score:</b>       -->
+      <!-- <br> -->
+      <!-- <b> -->
+      <!-- 	<span id="me-name" style="padding:5px;">(enter name above)</span> -->
+      <!-- </b> -->
+      <!-- : -->
+      <!-- <span id="me-score" style="padding:5px;">NA</span> -->
+      <!-- <br> -->
+      <!-- <span id="you-name" style="padding:5px;">(no opponent)</span> -->
+      <!-- : -->
+      <!-- <span id="you-score" style="padding:5px;">NA</span> -->
+    </body>
+</html>
