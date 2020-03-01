@@ -8,18 +8,24 @@
       <h1>Water polarization demo</h1>
       <table>
 	<tr>
-	  <td rowspan=3>
+	  <td rowspan=4>
 	    <canvas id="canvas" style="padding:5px;"></canvas>
 	  </td>
 	  <td>
-	    temperature:
+	    temperature (1-100):
 	    <input id="temperature" type="number" value="10" min="1" max="100">
 	  </td>
 	</tr>
 	<tr>
 	  <td>
-	    electric field:
+	    electric field (0-100):
 	    <input id="electricfield" type="number" value="10" min="0" max="100">
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    simulation speed (1-10):
+	    <input id="simspeed" type="number" value="10" min="1" max="10">
 	  </td>
 	</tr>
 	<tr>

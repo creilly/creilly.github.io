@@ -14,7 +14,8 @@ var energy = 0.;
 var efield = .001;
 var drag = 0.01;
 var runningaverage = 200;
-var avgmoment = null; 
+var avgmoment = null;
+var waitinterval = 0;
 for (var i = 0; i < nmols; i++) {
     x = 2.*rad + (1-2.*rad) * Math.random();
     y = 2.*rad + (1-2.*rad) * Math.random();
@@ -370,7 +371,7 @@ function draw() {
 
 function tick() {
     draw();
-    setTimeout(tick,0);
+    setTimeout(tick,waitinterval);
 }
 
 function ontemperature(temperature) {
@@ -395,14 +396,21 @@ function onelectricfield(electricfield) {
     efield = electricfield*1e-4;
 }
 
+function onsimspeed(electricfield) {
+    var simspeed = document.getElementById('simspeed').value;
+    waitinterval = 2**(10-simspeed);
+}
+
 function on_load() {
     set_size();
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
     document.getElementById('temperature').onchange = ontemperature;
     document.getElementById('electricfield').onchange = onelectricfield;
+    document.getElementById('simspeed').onchange = onsimspeed;
     ontemperature();
     onelectricfield();
+    onsimspeed();
     tick();
 };
 
