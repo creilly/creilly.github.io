@@ -13,6 +13,7 @@ var mols = [];
 var energy = 0.;
 var efield = .001;
 var drag = 0.01;
+var dt = 1;
 var runningaverage = 200;
 var avgmoment = null;
 var waitinterval = 0;
@@ -339,16 +340,16 @@ function draw() {
 		}
 	    }
 	}
-	mol[0] += mol[3];
-	mol[1] += mol[4];
-	mol[2] += mol[5];
+	mol[0] += dt * mol[3];
+	mol[1] += dt * mol[4];
+	mol[2] += dt * mol[5];
 	if (mol[2] > Math.PI) {
 	    mol[2] -= 2* Math.PI;
 	}
 	else if (mol[2] < -Math.PI) {
 	    mol[2] += 2* Math.PI;
 	}
-	mol[5] += efield*Math.cos(mol[2]) - drag*mol[5];
+	mol[5] += dt * ( efield*Math.cos(mol[2]) - drag*mol[5] );
 	trans_energy += mol[3]**2 + mol[4]**2;
 	rot_energy += (rad*mol[5])**2;
 	moment += Math.sin(mol[2]);
@@ -371,7 +372,7 @@ function draw() {
 
 function tick() {
     draw();
-    setTimeout(tick,waitinterval);
+    setTimeout(tick,20);
 }
 
 function ontemperature(temperature) {
@@ -398,7 +399,7 @@ function onelectricfield(electricfield) {
 
 function onsimspeed(electricfield) {
     var simspeed = document.getElementById('simspeed').value;
-    waitinterval = 2**(10-simspeed);
+    dt = 3. / (1.3)**(10-simspeed);
 }
 
 function on_load() {
