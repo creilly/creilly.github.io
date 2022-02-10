@@ -1,0 +1,35 @@
+a:hover, i:hover, .accordion-toggle:hover {
+	color: #005580;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.accordion-group, #add-plot, #export-plot, .export-data {
+
+	color: black;
+	background-color: #E6E6E6;
+	border: 3px solid #919191;
+}
+
+#add-plot, #export-plot, .menu-border, .export-data {
+	padding: 3px 6px;
+}
+
+.menu-border {
+	border: 3px solid #919191;
+	margin: 5px 0px;
+	padding: 7px 10px;
+	border-radius: 10px;
+}
+
+.collapse:not(.in) {
+	margin-bottom: 0px;
+}
+
+form.in {
+	padding-top: 1px;
+}
+
+.ui-state-highlight {
+	height: 100px;
+}
